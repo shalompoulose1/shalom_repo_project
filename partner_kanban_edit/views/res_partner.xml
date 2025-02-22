@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<record id="res_partner_kanban_view_inherit" model="ir.ui.view">
+		<field name="name">res.partner.kanban.inherit</field>
+		<field name="model">res.partner</field>
+		<field name="inherit_id" ref="base.res_partner_kanban_view" />
+		<field name="arch" type="xml">
+			<xpath expr="//div[contains(@class, 'oe_kanban_global_click')]"
+				position="inside">
+				<div class="o_kanban_top_right">
+					<button type="object" name="quick_edit_partner"
+						class="btn btn-primary btn-sm ms-2" string="Edit" />
+				</div>
+				<div class="o_kanban_top_center">
+					<button type="object" name="archive_partner"
+						class="btn btn-danger btn-sm" string="Archive"
+						invisible='active == False'
+						confirm="Are you sure you want to Archive This Record?" />
+						
+					<button type="object" name="Unarchive_partner"
+						class="btn btn-danger btn-sm" string="Unarchive"
+						invisible='active != False'
+						confirm="Are you sure you want to Unarchive This Record?" />
+				</div>
+			</xpath>
+		</field>
+	</record>
+</odoo>
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record id="view_contact_edit_wizard" model="ir.ui.view">
+		    <field name="name">contact.edit.wizard.form</field>
+		    <field name="model">contact.edit.wizard</field>
+		    <field name="arch" type="xml">
+		        <form string="Edit Contact">
+		            <sheet>
+		                <!-- Full-width Name Field -->
+		                <group>
+		                    <field name="name" colspan="2"/>
+		                </group>
+		                <group>
+		                    <group>
+		                        <field name="street"/>
+		                        <field name="street2"/>
+		                        <field name="city"/>
+		                        <field name="state_id" options="{'no_create_edit': True, 'no_create': True,'no_open':True}"/>
+		                        <field name="country_id" options="{'no_create_edit': True, 'no_create': True,'no_open':True}"/>
+		                    </group>
+		                    <group>
+		                        <field name="email"/>
+		                        <field name="phone"/>
+		                        <field name="mobile"/>
+		                    </group>
+		                </group>
+		                <footer>
+		                    <button name="update_partner_data" string="Update" type="object" class="btn-primary"/>
+		                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+		                </footer>
+		            </sheet>
+		        </form>
+		    </field>
+		</record>
+
+		<record id="action_contact_edit_wizard"
+			model="ir.actions.act_window">
+			<field name="name">Edit Contact</field>
+			<field name="res_model">contact.edit.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_contact_edit_wizard" />
+			<field name="target">new</field>
+		</record>
+
+	</data>
+</odoo>
